@@ -1,0 +1,12 @@
+{
+  "name": "TwitterClone",
+  "displayName": "TwitterClone",
+  "expo": {
+    "name": "TwitterClone",
+    "slug": "TwitterClone",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
