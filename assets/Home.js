@@ -5,6 +5,8 @@ import { Avatar } from 'react-native-paper';
 import firebase from 'firebase'
 import storage from '@react-native-firebase/storage';
 import * as ImagePicker from 'expo-image-picker';
+import { useNavigation } from '@react-navigation/native'
+import { AsyncStorage } from 'react-native';
 
 var firebaseConfig = {
     apiKey: "AIzaSyD5vKiGaiyf2ewcy6oHlfO9gYK_bjLnQSA",
@@ -22,9 +24,11 @@ if (!firebase.apps.length) {
 
 function MediaPost(url) {
 
+    const navigation = useNavigation();
+
     if (url.url != '') {
         return (
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('Media', { mediaUrl: url.url})}>
                 <Image
                     resizeMode={'cover'}
                     style={{ width: '90%', height: 200, marginBottom: 0, borderRadius: 15 }}
@@ -44,10 +48,12 @@ function MediaPost(url) {
 
 }
 
-function TweetPrefab({ _avatar, _name, _tag, _text, _mediaUrl }) {
+function TweetPrefab({ _avatar, _name, _tag, _text, _mediaUrl, _ID }) {
+
+    const navigation = useNavigation();
 
     return (
-        <View style={{ flexDirection: 'row', alignItems: 'flex-start' }}>
+        <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'flex-start' }} onPress={() => navigation.navigate('Tweet', { tweetID: _ID})}>
             <Avatar.Image size={50} source={{ uri: _avatar }} style={{ marginTop: 15, marginHorizontal: 15, backgroundColor: 'grey' }} />
 
             <View>
@@ -77,8 +83,7 @@ function TweetPrefab({ _avatar, _name, _tag, _text, _mediaUrl }) {
 
                 </View>
             </View>
-
-        </View>
+        </TouchableOpacity>
     )
 }
 
@@ -88,18 +93,22 @@ export default class HomeScreen extends React.Component {
         contentData: [],
         postModal: false,
         modalTextInput: '',
-        mediaUrl: ''
+        mediaUrl: '',
+        avatarPost: ''
     }
 
     componentDidMount() {
         this.dataToState()
     }
 
-    teste = () =>{
-        alert('teste')
-    }
+    dataToState = async () => {
 
-    dataToState = () => {
+        const profilePic = await AsyncStorage.getItem('profilePic');
+
+        this.setState({
+            avatarPost : profilePic
+        })
+
         firebase.firestore()
             .collection('Tweets')
             .get()
@@ -139,17 +148,19 @@ export default class HomeScreen extends React.Component {
     }
 
     postTweet = async () => {
-        //const userName = await AsyncStorage.getItem('userName');
-        //const userAvatar = await AsyncStorage.getItem('userAvatar');
+        const name = await AsyncStorage.getItem('username');
+        const tag = await AsyncStorage.getItem('tag');
+        const profilePic = await AsyncStorage.getItem('profilePic');
 
         if ((this.state.modalTextInput != '') || (this.state.mediaUrl != '')) {
             firebase.firestore()
                 .collection('Tweets')
                 .doc((new Date().getTime()).toString())
                 .set({
-                    avatar: 'https://pbs.twimg.com/profile_images/1302032549124993024/4xx1n_37_400x400.jpg',
-                    autor: 'Arthur',
-                    tag: 'Vusmonth',
+                    avatar: profilePic,
+                    autor: name,
+                    tag: tag,
+                    replies: [],
                     contentText: this.state.modalTextInput,
                     contentMedia: this.state.mediaUrl,
                 })
@@ -315,6 +326,7 @@ export default class HomeScreen extends React.Component {
                             _tag={item.tag}
                             _text={item.contentText}
                             _mediaUrl={item.mediaUrl}
+                            _ID={item.id}
                         />
                     }
 
