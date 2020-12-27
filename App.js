@@ -28,6 +28,7 @@ function Home({ navigation }) {
   return (
     <HomeScreen
       drawerPress={() => navigation.openDrawer()}
+      openProfile={() => navigation.navigate('Editar Perfil')}
     />
   );
 }

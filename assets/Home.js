@@ -22,13 +22,169 @@ if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
 }
 
+function WelcomeModal(page) {
+
+    const navigation = useNavigation();
+
+    if (page.page == 0) {
+        return (
+            <View
+                style={{
+                    width: '90%',
+                    height: '75%',
+                    backgroundColor: '#fff',
+                    borderRadius: 20,
+                    elevation: 15,
+                    borderColor: 'rgba(29,161,242,1.00)',
+                    alignItems: 'center',
+                    justifyContent: 'space-between'
+                }}>
+                <Text style={{ marginTop: 35, fontSize: 16, fontWeight: 'bold', color: 'rgba(29,161,242,1.00)' }}>Olá, seja bem vindo</Text>
+
+                <Icon name="twitter" size={60} color={'rgba(29,161,242,1.00)'} style={{ marginTop: 20 }} />
+
+                <Text style={{ fontSize: 18, fontWeight: 'bold' }}>Este é o Twitter Clone</Text>
+                <Text style={{ color: '#999', fontWeight: 'bold', marginHorizontal: 20, textAlign: 'center' }}>
+                    Um projeto de estudos desenvolvido por Arthur Martins
+                    que utiliza tecnologia react native e Google Firebase
+                </Text>
+
+                <View style={{ flexDirection: 'row', marginBottom: 30 }}>
+                    <View style={{ width: 10, height: 10, backgroundColor: 'rgba(29,161,242,1.00)', borderRadius: 20, marginHorizontal: 5 }} />
+                    <View style={{ width: 10, height: 10, backgroundColor: '#999', borderRadius: 20, marginHorizontal: 5 }} />
+                    <View style={{ width: 10, height: 10, backgroundColor: '#999', borderRadius: 20, marginHorizontal: 5 }} />
+                    <View style={{ width: 10, height: 10, backgroundColor: '#999', borderRadius: 20, marginHorizontal: 5 }} />
+                </View>
+
+            </View>
+        )
+    }
+    if (page.page == 1) {
+        return (
+            <View
+                style={{
+                    width: '90%',
+                    height: '75%',
+                    backgroundColor: '#fff',
+                    borderRadius: 20,
+                    elevation: 15,
+                    borderColor: 'rgba(29,161,242,1.00)',
+                    alignItems: 'center',
+                    justifyContent: 'space-between'
+                }}>
+                <Text style={{ marginTop: 35, fontSize: 16, fontWeight: 'bold', color: 'rgba(29,161,242,1.00)' }}>Funções limitadas</Text>
+
+                <Icon name="lock1" size={60} color={'rgba(29,161,242,1.00)'} style={{ marginTop: 20 }} />
+
+                <Text style={{ fontSize: 18, fontWeight: 'bold', textAlign: 'center', marginHorizontal: 25 }}>A maior parte dos recursos originais esta desativada</Text>
+                <Text style={{ color: '#999', fontWeight: 'bold', marginHorizontal: 20, textAlign: 'center' }}>
+                    Este app foi programado apenas com as funções basicas e essenciais para o funcionamento
+                    e demonstração das ferramentas estudadas.
+                </Text>
+
+                <View style={{ flexDirection: 'row', marginBottom: 30 }}>
+                    <View style={{ width: 10, height: 10, backgroundColor: '#999', borderRadius: 20, marginHorizontal: 5 }} />
+                    <View style={{ width: 10, height: 10, backgroundColor: 'rgba(29,161,242,1.00)', borderRadius: 20, marginHorizontal: 5 }} />
+                    <View style={{ width: 10, height: 10, backgroundColor: '#999', borderRadius: 20, marginHorizontal: 5 }} />
+                    <View style={{ width: 10, height: 10, backgroundColor: '#999', borderRadius: 20, marginHorizontal: 5 }} />
+                </View>
+
+            </View>
+        )
+    }
+
+    if (page.page == 2) {
+        return (
+            <View
+                style={{
+                    width: '90%',
+                    height: '75%',
+                    backgroundColor: '#fff',
+                    borderRadius: 20,
+                    elevation: 15,
+                    borderColor: 'rgba(29,161,242,1.00)',
+                    alignItems: 'center',
+                    justifyContent: 'space-between'
+                }}>
+                <Text style={{ marginTop: 35, fontSize: 16, fontWeight: 'bold', color: 'rgba(29,161,242,1.00)' }}>Entre em contato</Text>
+
+                <Icon name="customerservice" size={60} color={'rgba(29,161,242,1.00)'} style={{ marginTop: 20 }} />
+
+                <Text style={{ fontSize: 18, fontWeight: 'bold', textAlign: 'center', marginHorizontal: 25, marginBottom: 20 }}>Entre em contato com o desenvolvedor atravez dos canais:</Text>
+
+                <View style={{ flexDirection: 'row', alignSelf: 'flex-start', marginLeft: 25 }}>
+                    <Icon name="mail" size={25} color={'#999'} />
+                    <Text style={{ color: '#999', fontWeight: 'bold', marginLeft: 10, alignSelf: 'center' }}>
+                        Arthurmartins08@outlook.com
+                    </Text>
+                </View>
+
+                <View style={{ flexDirection: 'row', alignSelf: 'flex-start', marginLeft: 25 }}>
+                    <Icon name="instagram" size={25} color={'#999'} />
+                    <Text style={{ color: '#999', fontWeight: 'bold', marginLeft: 10, alignSelf: 'center' }}>
+                        @Vusmonth
+                    </Text>
+                </View>
+
+                <View style={{ flexDirection: 'row', alignSelf: 'flex-start', marginLeft: 25 }}>
+                    <Icon name="phone" size={25} color={'#999'} />
+                    <Text style={{ color: '#999', fontWeight: 'bold', marginLeft: 10, alignSelf: 'center' }}>
+                        (77)981216770
+                    </Text>
+                </View>
+
+                <View style={{ flexDirection: 'row', marginBottom: 30 }}>
+                    <View style={{ width: 10, height: 10, backgroundColor: '#999', borderRadius: 20, marginHorizontal: 5 }} />
+                    <View style={{ width: 10, height: 10, backgroundColor: '#999', borderRadius: 20, marginHorizontal: 5 }} />
+                    <View style={{ width: 10, height: 10, backgroundColor: 'rgba(29,161,242,1.00)', borderRadius: 20, marginHorizontal: 5 }} />
+                    <View style={{ width: 10, height: 10, backgroundColor: '#999', borderRadius: 20, marginHorizontal: 5 }} />
+                </View>
+
+            </View>
+        )
+    }
+
+    if (page.page == 3) {
+        return (
+            <View
+                style={{
+                    width: '90%',
+                    height: '75%',
+                    backgroundColor: '#fff',
+                    borderRadius: 20,
+                    elevation: 15,
+                    borderColor: 'rgba(29,161,242,1.00)',
+                    alignItems: 'center',
+                    justifyContent: 'space-between'
+                }}>
+                <Text style={{ marginTop: 35, fontSize: 16, fontWeight: 'bold', color: 'rgba(29,161,242,1.00)' }}>Edite seu perfil</Text>
+
+                <Icon name="user" size={60} color={'rgba(29,161,242,1.00)'} style={{ marginTop: 20 }} />
+
+                <Text style={{ fontSize: 18, fontWeight: 'bold', textAlign: 'center', marginHorizontal: 60, marginBottom: 20 }}>Para começar, editaremos seu perfil.</Text>
+
+                <Text style={{ color: '#999', fontWeight: 'bold', marginHorizontal: 20, alignSelf: 'center', textAlign: 'center' }}>
+                    Você será direcionado para uma pagina de edição do perfil, edite como e quando quiser.
+                    </Text>
+
+                <View style={{ flexDirection: 'row', marginBottom: 30 }}>
+                    <View style={{ width: 10, height: 10, backgroundColor: '#999', borderRadius: 20, marginHorizontal: 5 }} />
+                    <View style={{ width: 10, height: 10, backgroundColor: '#999', borderRadius: 20, marginHorizontal: 5 }} />
+                    <View style={{ width: 10, height: 10, backgroundColor: '#999', borderRadius: 20, marginHorizontal: 5 }} />
+                    <View style={{ width: 10, height: 10, backgroundColor: 'rgba(29,161,242,1.00)', borderRadius: 20, marginHorizontal: 5 }} />
+                </View>
+            </View>
+        )
+    }
+}
+
 function MediaPost(url) {
 
     const navigation = useNavigation();
 
     if (url.url != '') {
         return (
-            <TouchableOpacity onPress={() => navigation.navigate('Media', { mediaUrl: url.url})}>
+            <TouchableOpacity onPress={() => navigation.navigate('Media', { mediaUrl: url.url })}>
                 <Image
                     resizeMode={'cover'}
                     style={{ width: '90%', height: 200, marginBottom: 0, borderRadius: 15 }}
@@ -41,23 +197,23 @@ function MediaPost(url) {
         return (
             <Image
                 style={{ width: 0, height: 0 }}
-                source={{ uri: url.url }}
+                source={{ uri: null }}
             />
         )
     }
 
 }
 
-function TweetPrefab({ _avatar, _name, _tag, _text, _mediaUrl, _ID }) {
+function TweetPrefab({ _avatar, _name, _tag, _text, _mediaUrl, _ID, _repliesCount }) {
 
     const navigation = useNavigation();
 
     return (
-        <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'flex-start' }} onPress={() => navigation.navigate('Tweet', { tweetID: _ID})}>
+        <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'flex-start' }} onPress={() => navigation.navigate('Tweet', { tweetID: _ID })}>
             <Avatar.Image size={50} source={{ uri: _avatar }} style={{ marginTop: 15, marginHorizontal: 15, backgroundColor: 'grey' }} />
 
             <View>
-                <View style={{ marginTop: 10, flexDirection: 'row', alignItems: 'flex-start' }}>
+                <View style={{ marginTop: 15, flexDirection: 'row', alignItems: 'flex-start' }}>
                     <Text style={{ fontWeight: 'bold', fontSize: 16 }}>{_name}</Text>
                     <Text style={{ color: '#999', marginHorizontal: 5 }}>@{_tag}</Text>
                 </View>
@@ -67,7 +223,9 @@ function TweetPrefab({ _avatar, _name, _tag, _text, _mediaUrl, _ID }) {
 
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', width: '65%' }}>
                     <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center' }}>
+                        
                         <Icon name="message1" size={15} color={'#999'} style={{ marginVertical: 10 }} />
+
                         <Text style={{ color: '#999', marginHorizontal: 5 }}>0</Text>
                     </TouchableOpacity>
 
@@ -94,7 +252,9 @@ export default class HomeScreen extends React.Component {
         postModal: false,
         modalTextInput: '',
         mediaUrl: '',
-        avatarPost: ''
+        avatarPost: '',
+        page: 0,
+        WelcomeModalBool: true
     }
 
     componentDidMount() {
@@ -104,9 +264,15 @@ export default class HomeScreen extends React.Component {
     dataToState = async () => {
 
         const profilePic = await AsyncStorage.getItem('profilePic');
+        const FirstTime = await AsyncStorage.getItem('FirstTime');
 
+        if(FirstTime == 'false'){
+            this.setState({
+                WelcomeModalBool: false,
+            })
+        }
         this.setState({
-            avatarPost : profilePic
+            avatarPost: profilePic,
         })
 
         firebase.firestore()
@@ -123,14 +289,13 @@ export default class HomeScreen extends React.Component {
                         contentText: documentSnapshot.data().contentText,
                         avatar: documentSnapshot.data().avatar,
                         mediaUrl: documentSnapshot.data().contentMedia,
+                        replies: documentSnapshot.data().replies,
                     })
                 });
 
                 this.setState({
                     contentData: contentPages.reverse(),
                 })
-
-                //alert(JSON.stringify(contentPages))
             })
     }
 
@@ -180,7 +345,7 @@ export default class HomeScreen extends React.Component {
         let result = await ImagePicker.launchImageLibraryAsync({
             mediaTypes: ImagePicker.MediaTypeOptions.Images,
             allowsEditing: true,
-            quality: 1,
+            quality: 0.6,
             base64: true
         });
         this.setState({
@@ -214,10 +379,52 @@ export default class HomeScreen extends React.Component {
         }
     };
 
+    welcomePage = async () =>{
+        this.setState({
+            page: this.state.page + 1,
+        })
+
+        if(this.state.page >= 3){
+            this.setState({
+                WelcomeModalBool: false
+            })
+            this.props.openProfile()
+            await AsyncStorage.setItem('FirstTime', 'false')
+        }
+    }
+
     render() {
         return (
             <View style={styles.container}>
                 <StatusBar style="light" />
+
+                <Modal
+                    animationType="none"
+                    transparent={true}
+                    visible={this.state.WelcomeModalBool}
+                >
+                    <View style={{ width: '100%', height: '100%', justifyContent: 'center', alignItems: 'center' }}>
+
+                        <WelcomeModal page={this.state.page} />
+
+                        <TouchableOpacity
+                            onPress={() => this.welcomePage()}
+                            style={{
+                                width: '50%',
+                                elevation: 20,
+                                height: 60,
+                                backgroundColor: 'rgba(29,161,242,1.00)',
+                                borderRadius: 20,
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                marginTop: 20
+                            }}>
+                            <Text style={{ fontWeight: 'bold', fontSize: 18, color: '#fff' }}>Proximo</Text>
+                        </TouchableOpacity>
+
+                    </View>
+                </Modal>
+
                 <Modal
                     animationType="slide"
                     transparent={false}
@@ -327,6 +534,7 @@ export default class HomeScreen extends React.Component {
                             _text={item.contentText}
                             _mediaUrl={item.mediaUrl}
                             _ID={item.id}
+                            _repliesCount={item.replies}
                         />
                     }
 

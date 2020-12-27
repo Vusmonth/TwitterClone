@@ -205,11 +205,11 @@ export default class HomeScreen extends React.Component {
 
                             <MediaPost url={this.state.tweetData.contentMedia} />
 
-                            <Text style={{ marginHorizontal: 15, marginVertical: 10, color: '#999' }}>10:26 - 05/12/2020</Text>
+                            <Text style={{ marginHorizontal: 15, marginVertical: 10, color: '#999' }}> </Text>
 
                             <View style={{ flexDirection: 'row', marginHorizontal: 15, borderColor: '#999', borderTopWidth: 1, borderBottomWidth: 1, width: '90%' }}>
-                                <Text style={{ marginVertical: 10, color: '#999' }}>3 Comentarios</Text>
-                                <Text style={{ marginLeft: 15, marginVertical: 10, color: '#999' }}>225 Curtidas</Text>
+                                <Text style={{ marginVertical: 10, color: '#999' }}>? Comentarios</Text>
+                                <Text style={{ marginLeft: 15, marginVertical: 10, color: '#999' }}>? Curtidas</Text>
                             </View>
 
                             <View style={{ flexDirection: 'row', justifyContent: 'space-around', width: '100%', borderColor: '#999', borderBottomWidth: 1 }}>

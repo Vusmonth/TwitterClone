@@ -32,13 +32,14 @@ export default class ProfileScreen extends React.Component {
 
     componentDidMount() {
         this._restoreData()
+
     }
 
     pickImage = async () => {
         let result = await ImagePicker.launchImageLibraryAsync({
             mediaTypes: ImagePicker.MediaTypeOptions.Images,
             allowsEditing: true,
-            quality: 1,
+            quality: 0.4,
             base64: true
         });
         this.setState({
@@ -119,7 +120,7 @@ export default class ProfileScreen extends React.Component {
                         source={{ uri: this.state.mediaUrl }}
                         style={{ marginHorizontal: 15, backgroundColor: 'grey' }}
                     />
-                    <Text>Toque para editar</Text>
+                    <Text>Toque para editar foto</Text>
                 </TouchableOpacity>
 
                 <View style={{ alignItems: 'center', width: '100%', marginTop: 30 }}>

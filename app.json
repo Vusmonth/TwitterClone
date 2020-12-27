@@ -7,6 +7,11 @@
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "description": "Projeto de estudo de react-native e firebase.",
+    "githubUrl": "https://github.com/Vusmonth/TwitterClone",
+    "android": {
+      "package": "com.epitaph.TwitterClone"
+    }
   }
 }
